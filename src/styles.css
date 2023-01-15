@@ -1,0 +1,126 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@300;400&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=MuseoModerno:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100;1,200;1,300;1,400&family=Teko:wght@300;400;500;600;700&display=swap");
+
+/* 
+font-family: 'Bangers', cursive;
+
+font-family: 'Comic Neue', cursive;
+
+font-family: 'Montserrat', sans-serif;
+
+font-family: 'MuseoModerno', cursive;
+
+font-family: 'Teko', sans-serif;
+ */
+
+:root {
+  --borderRadius: 8px;
+  --boostrapGrey: #212529;
+  --boostrapBlack: #1a1e21;
+  --white: white;
+  --shadow: rgba(2, 12, 27, 0.7);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+i {
+  font-size: 1em;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Teko', sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+
+.nav-pills > li > a.active {
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: white !important;
+}
+.section-container {
+  backdrop-filter: blur(2px);
+  z-index: 2;
+  padding: 70px 0 70px;
+}
+
+.img-thumbnail {
+  width: 130px;
+
+  height: 100%;
+}
+
+.title {
+  font-family: "Teko", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.hover-underline-animation-dark {
+  display: inline-block;
+  position: relative;
+  color: #040404;
+}
+
+.hover-underline-animation-dark:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation-dark:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.hover-underline-animation-light {
+  display: inline-block;
+  position: relative;
+  color: #e8e7e7;
+}
+
+.hover-underline-animation-light:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #e8e7e7;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation-light:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+.editPannel {
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 3em;
+}
+
+.swal2-popup {
+  font-family: "Teko", sans-serif !important;
+}

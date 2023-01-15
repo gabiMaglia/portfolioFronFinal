@@ -1,0 +1,281 @@
+<article class="container-fluid m-0 p-0 g-0 section-container">
+  <!-- Notification for no educations -->
+  <div *ngIf="studies?.length == 0 && isLog" class="mt-5">
+    <div class="d-flex justify-content-center bg-light" role="alert">
+      <h4 class="alert-heading">No Studies found</h4>
+    </div>
+  </div>
+  <!-- Studies Container -->
+  <div id="container" class="container-xxl">
+    <!-- PortadaSlide -->
+    <div
+      *ngIf="!isLog"
+      class="row portada"
+      id="portada"
+      [ngClass]="{ hide: hide }"
+      (click)="unfold()"
+    >
+      <div class="col-xxl-12">
+        <h2
+          matTooltip="Click and Hold!"
+          class="hover-underline-animation-dark title"
+        >
+          Studies
+        </h2>
+      </div>
+    </div>
+    <!-- StudiesCard -->
+    <div class="col-12 studiesBoard" (click)="unfold()">
+      <article
+        *ngFor="let studie of studies; trackBy: trackByMethod"
+        class="row mx-1 py-3 d-flex flex-wraprounded-top rounded-bottom bg-none border studies-cont"
+      >
+        <div class="col-2 img-job-cont">
+          <img
+            class="img-thumbnail"
+            [src]="studie.img_st || defaultImgValue"
+            alt="UtnBa"
+          />
+        </div>
+
+        <div class="col-10 d-flex flex-column justify-content-center data-cont">
+          <h6 id="ID" style="display: none">{{ studie.id }}</h6>
+          <h4>{{ studie.institution_st }}</h4>
+          <h5>{{ studie.title_st }}</h5>
+          <p class="description">{{ studie.description_st }}</p>
+          <h6>{{ studie.startDate_st }} to {{ studie.endDate_st }}</h6>
+        </div>
+        <div *ngIf="isLog" class="editPannel">
+          <button
+            (click)="modalEdit.openModal(this.onPatchValue(studie))"
+            class="btn btn-floating btn-outline-light mx-1"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button
+            (click)="modalDelete.openModal(studie)"
+            class="btn btn-floating btn-outline-light mx-1"
+          >
+            <i class="fa-solid fa-delete-left"></i>
+          </button>
+        </div>
+      </article>
+      <button
+        *ngIf="isLog"
+        (click)="modalAdd.openModal(null)"
+        (click)="this.contactForm = this.initForm()"
+        id="addBtn"
+        class="btn btn-outline-dark mt-5"
+      >
+        <i class="fa-solid fa-plus"></i> Add new Studie
+      </button>
+    </div>
+    <!-- Notification for no data -->
+    <div
+      *ngIf="studies?.length == 0 && !isLog"
+      class="col-lg-12 col-md-12 col-xl-12 spinner d-flex justify-content-center"
+      [ngStyle]="{ 'margin-top':'14rem' }"
+    >
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Modals -->
+<div #modals>
+  <!-- Add Modal-->
+  <app-modal [title]="'Add Studie'" #modalAdd>
+    <form
+      #form
+      (ngSubmit)="addStudies(this.contactForm)"
+      [formGroup]="contactForm"
+      (ngSubmit)="modalAdd.closeModal()"
+    >
+      <div class="form-group">
+        <label for="title_st">Title</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="title_st"
+          type="text"
+          placeholder=""
+          required
+        />
+        <label for="institution_st">Institution</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="institution_st"
+          type="text"
+          placeholder=""
+          required
+        />
+        <label for="description_st">Description</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="description_st"
+          type="text"
+          placeholder=""
+          required
+        />
+        <label for="startDate_st">Start Date</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="startDate_st"
+          type="text"
+          placeholder=""
+          required
+        />
+        <label for="endDate_st">End Date</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="endDate_st"
+          type="text"
+          placeholder=""
+        />
+        <label for="img_st">Photo</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="img_st"
+          type="text"
+          placeholder=""
+        />
+        <label for="persona_id">User ID</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="persona_id"
+          type="text"
+          readonly
+          required
+        />
+        <label for="persona_dni_persona">User Dni</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="persona_DNI_persona"
+          type="text"
+          readonly
+          required
+        />
+      </div>
+
+      <button
+        [disabled]="contactForm.invalid"
+        [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+        type="submit"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Accept
+      </button>
+    </form>
+  </app-modal>
+
+  <!-- Edit modal -->
+  <app-modal [title]="'Edit Studie'" #modalEdit>
+    <form
+      #form
+      (ngSubmit)="updateStudies(this.contactForm)"
+      [formGroup]="contactForm"
+      (ngSubmit)="modalEdit.closeModal()"
+    >
+      <div class="form-group">
+        <label for="title_st">Title</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="title_st"
+          type="text"
+          required
+        />
+        <label for="institution_st">Institution</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="institution_st"
+          type="text"
+          required
+        />
+        <label for="description_st">Description</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="description_st"
+          type="text"
+          required
+        />
+        <label for="startDate_st">Start Date</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="startDate_st"
+          type="text"
+          required
+        />
+        <label for="endDate_st">End Date</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="endDate_st"
+          type="text"
+        />
+        <label for="img_st">Photo</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="img_st"
+          type="text"
+        />
+        <label for="persona_id">User ID</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="persona_id"
+          type="text"
+          readonly
+          required
+        />
+        <label for="persona_dni_persona">User Dni</label>
+        <input
+          [ngStyle]="{ width: '100%' }"
+          formControlName="persona_DNI_persona"
+          type="text"
+          readonly
+          required
+        />
+      </div>
+
+      <button
+        [disabled]="contactForm.invalid"
+        [disabled]="contactForm.get('title_st')?.pristine && contactForm.get('institution_st')?.pristine && contactForm.get('description_st')?.pristine && contactForm.get('startDate_st')?.pristine && contactForm.get('endDate_st')?.pristine && contactForm.get('img_st')?.pristine"
+        [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+        type="submit"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Accept
+      </button>
+    </form>
+  </app-modal>
+
+  <!-- Delete Modal -->
+  <app-modal [title]="'Delete Studie?'" #modalDelete>
+    <form
+      #form
+      (ngSubmit)="deleteStudie(modalDelete.obj.id)"
+      (ngSubmit)="modalDelete.closeModal()"
+    >
+      <h1 class="text-center mb-5" *ngIf="modalDelete.obj">
+        {{ modalDelete.obj.title_st }}
+      </h1>
+
+      <div class="form-group">
+        <button
+          [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+          type="submit"
+          class="btn btn-outline-dark btn-floating"
+        >
+          Accept
+        </button>
+        <button
+          (click)="modalDelete.closeModal()"
+          [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+          type="button"
+          class="btn btn-outline-dark btn-floating"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </app-modal>
+</div>

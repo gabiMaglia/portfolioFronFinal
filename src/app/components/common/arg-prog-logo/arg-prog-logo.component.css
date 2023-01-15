@@ -1,0 +1,13 @@
+.logo{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.logo-wraper{
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--boostrapBlack);
+}
+img{
+    height: 3rem;
+}

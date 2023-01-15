@@ -1,0 +1,84 @@
+{
+    "name"      : "Gabriel Maglia",
+    "surname"   : "Maglia",
+    "age"       : "35",
+    "frontPhrase": "Programing professional ideas",
+    
+    "socialMedia" : {
+        "facebook"  : "https://www.facebook.com/gaberielsk",
+        "gmail"     : "mailto:gab.maglia@hotmail.com?subject=subject",
+        "instagram" : "https://www.instagram.com/gaberiel_maglia/",
+        "linkedin"  : "https://www.linkedin.com/in/gabriel-maglia-449577238/",
+        "github"    : "https://github.com/gabiMaglia"
+
+    },
+    "catchPhrase" : "Programming professional ideas <br> for fuN",
+    "about" : {
+        "img" : "assets/img/fotoPerfil.jpeg",
+        "litleDescription" : [
+            "Informatic enthusiast.",
+            "Computer and TecnoHolic.",
+            "Creating integral solutions for users interfaces />"
+        ]
+    },
+    "skills" : {
+        "soft" : [
+            {"name": "Flexibility" ,          "img" : "assets/img/softSkills/flexibility.png"},    
+            {"name": "Creativity" ,           "img" : "assets/img/softSkills/creativity.png"},   
+            {"name": "Compromise" ,           "img" : "assets/img/softSkills/compromise.png"},    
+            {"name": "Critical Perspective" , "img" : "assets/img/softSkills/criticalPerspective.png"}    
+        ],
+        "hard" : [
+             {"name": "HTML" ,                 "img" : "assets/img/lenguages/html.png", "percent" : "70"},  
+             {"name": "CSS" ,                  "img" : "assets/img/lenguages/css.png", "percent" : "40" }, 
+             {"name": "Javascript" ,           "img" : "assets/img/lenguages/index.png", "percent" : "35"}, 
+             {"name": "React Js." ,            "img" : "assets/img/lenguages/reactjs.png", "percent" : "20"}, 
+             {"name": "Node Js." ,             "img" : "assets/img/lenguages/nodejs.png", "percent" : "20" }, 
+             {"name": "Express Js." ,          "img" : "assets/img/lenguages/expressjs.png", "percent" : "20"}
+        ]
+    },
+
+    "studies" : [
+        {
+            "img"         : "assets/img//studies/mumuki.png", 
+            "institution" : "Argentina Programa",
+            "title"       : "#Se Programar",
+            "description" : "A basic introduction to programing logics with Gobstones, Javascript and Ruby",
+            "date"        : "April, 2022/ June/2022"   
+        },
+        {
+            "img"         : "assets/img/studies/utn.png", 
+            "institution" : "Universidad Tecnologica Nacional",
+            "title"       : "Full Stack Jr. developer",
+            "description" : "In this course i learned basic concepts to develope a websites using SQL, NodeJS, ExpressJS and ReactJS",
+            "date"        : "Febraury, 2022/ August/2022"  
+        }
+    ],
+    "experience" : [
+        {
+            "img"         : "assets/img/studies/utn.png", 
+            "institution" : "Municipalidad de Granadero Baigorria",
+            "title"       : "Area Manager",
+            "description" : "Responsible for the maintenance and operation (servers, network anteas and cameras) of the surveillance Center of of Granadero Baigorria city",
+            "date"        : "Abr. 2017 - Present Day"  
+        }
+    ],
+
+    "works" : [
+        {
+            "title"       : "Gimnasio Craneo",
+            "tecnologies" : "ReactJS/ExpressJS",
+            "description" : "This landing-page is entirely developed in ReactJS, it back-ends is developed in ExpressJS and Handlebars. Back-end can store students and their entire schedule of activities, the list of trainers and how many students are in each class.Hosted temporally in Heroku.",  
+            "links" : {
+                "deploy":"https://gimnasiocraneofront.herokuapp.com/",
+                "github":"https://github.com/gabiMaglia/gimnasioCraneoFrontEnd"
+            },
+            "img" : [
+                "assets/img/jobs/front-end-craneo/craneo1.png",    
+                "assets/img/jobs/front-end-craneo/craneo2.png",    
+                "assets/img/jobs/front-end-craneo/craneo3.png"    
+            ]
+        }
+        
+    ]
+}

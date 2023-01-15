@@ -1,0 +1,78 @@
+<!-- Nav-bar -->
+<div
+  id="nav-bar"
+  class="logBar navbar navbar-dark bg-dark fixed-top navbar-scroll bg-dark"
+>
+  <li class="nav-link me-3">
+    <a class="btn btn-outline-light btn-floating mx-1" href="/home">
+      <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </li>
+</div>
+
+<!-- Login form -->
+<div id="cont">
+  <h1 class="text-center mt-5 mb-5">Log in</h1>
+  <form
+    [formGroup]="form"
+    action="post"
+    class="form"
+    (ngSubmit)="logIn($event)"
+  >
+    <input
+      [ngClass]="{
+        'is-invalid': Email?.errors && Email?.touched,
+        'is-valid': !Email?.errors && Email?.touched
+      }"
+      formControlName="email"
+      id="username"
+      class="form-control"
+      type="text"
+      name="email"
+      value=""
+      placeholder="Email"
+    /><br />
+    <div *ngIf="Email?.errors && Email?.touched">
+      <p *ngIf="Email?.hasError('required')" class="text-danger fw-bold">
+        Email required
+      </p>
+      <p *ngIf="Email?.hasError('email')" class="text-danger fw-bold">
+        Wrong Email
+      </p>
+    </div>
+    <input
+      [ngClass]="{
+        'is-invalid': Password?.errors && Password?.touched,
+        'is-valid': !Password?.errors && Password?.touched
+      }"
+      formControlName="password"
+      id="password"
+      class="form-control"
+      type="password"
+      name="password"
+      value=""
+      minlength="8"
+      placeholder="Password"
+    />
+    <div *ngIf="Password?.errors && Password?.touched">
+      <p
+        *ngIf="Password?.hasError('required')"
+        class="text-danger mt-3 fw-bold"
+      >
+        Password required
+      </p>
+      <p *ngIf="Password?.errors?.['minlength']" class="mt-3">Wrong Password</p>
+    </div>
+
+    <button
+      class="submit btn btn-outline-dark btn-floating mt-3"
+      id="valid"
+      type="submit"
+    >
+      Ingresar</button
+    ><br />
+  </form>
+</div>
+
+<!-- Footer -->
+<div class="footer bg-dark"></div>

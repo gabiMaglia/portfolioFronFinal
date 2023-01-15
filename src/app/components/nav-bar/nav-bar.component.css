@@ -1,0 +1,32 @@
+.editBtn {
+  top: 4.8rem;
+  left: 1rem;
+  z-index: -1;
+  border-radius: 6px;
+  position: absolute;
+}
+
+a {
+  outline: none;
+}
+#nav-bar{
+  animation: 1.5s ease-out slidein;
+}
+
+@keyframes slidein {
+  0% { top: -120px;  }
+  100% { top: 0px; }
+}
+
+@media (max-width: 991px) {
+  #navBarMenu {
+    text-align: center;
+  }
+  .editBtn {
+    top: 3.5rem;
+  }
+  .socialm {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+}

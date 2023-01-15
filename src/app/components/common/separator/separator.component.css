@@ -1,0 +1,10 @@
+.separator{
+    width: 100%;
+    margin-inline: auto;
+    height: 0.5rem;
+    background-color: var(--boostrapGrey);
+}
+
+.sesenta{
+    width: 60%;
+}

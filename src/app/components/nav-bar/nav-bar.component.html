@@ -1,0 +1,160 @@
+<nav
+  id="nav-bar"
+  class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-scroll"
+>
+  <!-- Flag -->
+  <div class="container-fluid nav-cont">
+    <h1 class="navbar-brand m-0 banner">
+      {{ persona.name_persona }} {{ persona.surname_persona }}
+    </h1>
+    <!-- Edit Btn -->
+    <div *ngIf="isLog" class="editBtn">
+      <button
+        (click)="modalUpdate.openModal(onPatchValuePersona(persona))"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Edit Profile
+      </button>
+    </div>
+    <!-- HamburgerMenu -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navBarMenu"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Nav -->
+    <div class="collapse navbar-collapse" id="navBarMenu">
+      <ul class="navbar-nav nav-pills me-auto ms-2">
+        <li class="nav-item">
+          <a
+            class="nav-link active hover-underline-animation-light"
+            href="#front-page"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation-light" href="#about-me"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation-light" href="#expStu"
+            >Studies/Experience</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation-light" href="#my-work"
+            >Works</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover-underline-animation-light" href="#contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+
+      <ul
+        class="navbar-nav d-flex flex-row align-items-center justify-content-center socialm"
+      >
+        <li class="nav-item me-lg-0">
+          <a
+            class="btn btn-outline-light btn-floating mx-1"
+            href="{{ socialM.github }}"
+            target="_blank"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </li>
+        <li class="nav-item me-lg-0">
+          <a
+            class="btn btn-outline-light btn-floating mx-1"
+            href="{{ socialM.instagram }}"
+            target="_blank"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <a class="nav-link" target="_blank" href="/resume">
+          <button id="resumebtn" class="btn btn-outline-light">Resume</button>
+        </a>
+        <li class="nav-link" *ngIf="!isLog">
+          <a class="btn btn-outline-light btn-floating mx-1" href="/login">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          </a>
+        </li>
+
+        <li class="nav-link" *ngIf="isLog">
+          <a
+            class="btn btn-outline-light btn-floating mx-1"
+            (click)="logout()"
+            href="/home"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- //Modal de edicion de perfil -->
+<app-modal [title]="'Edit Profile'" #modalUpdate>
+  <form
+    #form
+    (ngSubmit)="updatePersona(this.contactFormPersona)"
+    [formGroup]="contactFormPersona"
+    (ngSubmit)="modalUpdate.closeModal()"
+  >
+    <div class="form-group">
+      <label for="name_persona">Name</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="name_persona"
+        type="text"
+        required
+      />
+      <label for="surname_persona">Surname</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="surname_persona"
+        type="text"
+        required
+      />
+      <label for="dni_persona">DNI</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="dni_persona"
+        type="text"
+        required
+      />
+      <label for="telephone_persona">Telephone</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="telephone_persona"
+        type="text"
+        required
+      />
+      <label for="main_phrase">Main Phrase</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="main_phrase"
+        type="text"
+        required
+      />
+      <button
+        [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+        type="submit"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Accept
+      </button>
+    </div>
+  </form>
+</app-modal>

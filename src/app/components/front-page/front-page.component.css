@@ -1,0 +1,24 @@
+#front-page{
+    min-height: 100vh ;
+    display: grid;
+    place-content: center;
+    font-family: 'Teko', sans-serif;    
+}
+
+
+
+#catch-phrase{
+    text-align: center;
+    align-self: flex-end;
+    margin-inline: 2rem;
+    animation: 1s ease-out 0s 1 blurIn;
+}
+
+@keyframes blurIn {
+    0%{
+         filter:blur(100px);
+    }
+    100%{
+        filter:blur(0);
+    }
+}

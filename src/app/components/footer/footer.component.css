@@ -1,0 +1,79 @@
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+  
+  .form {
+    width: min(62.5rem, 90%);
+    text-align: center;
+   
+  }
+  .formulario h2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+  }
+  
+  .formulario p {
+    min-width: 210px;
+    position: relative;
+    margin-top: 1rem;
+  }
+  
+  .formulario label {
+    color: var(--boostrapGrey);
+    position: absolute;
+    top: 0;
+    left: 0.3125rem;
+    top: 0.625rem;
+    transition: 0.5s ease-in-out all;
+    -moz-transition: all 0.5s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .formulario p input:focus ~ label,
+  .formulario p input:valid ~ label {
+    top: -1.5rem;
+    font-size: 1rem;
+    color: var(--white);
+  }
+  
+  .formulario button {
+    margin-top: 4%;
+    width: 100%;
+  }
+  
+  .formulario p input,
+  .formulario p textarea {
+    border-radius: var(--borderRadius);
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: 1rem;
+    background: var(--white);
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 1px solid var(--gris);
+  }
+  
+  .formulario p textarea {
+    resize: none;
+    outline: none;
+    border: 1px solid var(--gris);
+  }
+  
+  .formulario p input:focus {
+    outline: none;
+  }
+  
+
+  .copy{
+    height: 5rem;
+  }
+
+  
