@@ -41,6 +41,7 @@
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper">
                     <img
+                     
                       [src]="job.img1_pro"
                       class="carousel-pic"
                       alt="{{ job.title_pro }}"
@@ -50,6 +51,7 @@
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper">
                     <img
+                     loading="lazy"
                       [src]="job.img3_pro"
                       class="carousel-pic"
                       alt="{{ job.title_pro }}"
@@ -58,7 +60,9 @@
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper">
+                    
                     <img
+                       loading="lazy"
                       [src]="job.img2_pro"
                       class="carousel-pic"
                       alt="{{ job.title_pro }}"
