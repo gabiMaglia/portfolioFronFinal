@@ -1,8 +1,4 @@
-.logo{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
+
 .logo-wraper{
     display: flex;
     justify-content: flex-end;

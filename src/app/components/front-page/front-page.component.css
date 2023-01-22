@@ -1,11 +1,17 @@
 #front-page{
     min-height: 100vh ;
+    height: calc(100vh - calc(100vh - 100%));
     display: grid;
     place-content: center;
-    font-family: 'Teko', sans-serif;    
+    font-family: 'Teko', sans-serif;   
+    
 }
 
-
+app-arg-prog-logo{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 
 #catch-phrase{
     text-align: center;

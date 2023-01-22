@@ -1,3 +1,7 @@
+.navbar {
+ max-height: var(navBarHeight); 
+}
+
 .editBtn {
   top: 4.8rem;
   left: 1rem;

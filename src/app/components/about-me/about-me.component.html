@@ -2,11 +2,11 @@
   <!-- //About Container -->
   <div class="row" id="about-container">
     <!-- White column -->
-    <div class="col-lg-6 m-0 p-0 white-column" data-aos="fade-right">
+    <div class="col-lg-6 m-0 p-0 white-column" [ngClass]="{'data-aos = fade-right': !isMobile}" >
       <h2 class="hover-underline-animation-dark title">About</h2>
     </div>
     <!-- Black column -->
-    <div class="col-lg-6 m-0 p-0 black-column" data-aos="fade-left">
+    <div class="col-lg-6 m-0 p-0 black-column" [ngClass]="{'data-aos = fade-left': !isMobile}">
       <!-- Photo -->
       <div class="photo">
         <div *ngIf="isLog" class="position-absolute editPannel me-2">

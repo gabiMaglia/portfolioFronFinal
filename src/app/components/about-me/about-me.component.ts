@@ -20,6 +20,7 @@ export class AboutMeComponent implements OnInit {
 
   persona: Persona = new Persona(0, '', '', '', '', '', '', '', '', '');
   phraseArr?: String[];
+  isMobile: Boolean = false;
 
   skills?: Skills[];
 
@@ -40,8 +41,18 @@ export class AboutMeComponent implements OnInit {
   ngOnInit(): void {
     this.getPersona();
     this.getSkills();
+    this.itIsMobile();
     this.contactFormPersona = this.initFormPersona();
     this.contactFormSkill = this.initFormSkill();
+  }
+
+   itIsMobile():void {
+
+    if (window.innerWidth < 658) {
+      this.isMobile =true
+      
+      }
+    
   }
 
   succesAlert(message: String) {

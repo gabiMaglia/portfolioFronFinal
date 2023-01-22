@@ -49,8 +49,8 @@
     width: 100%;
   }
   
-  .formulario p input,
-  .formulario p textarea {
+  .formulario p input
+   { 
     border-radius: var(--borderRadius);
     width: 100%;
     margin-bottom: 1em;
@@ -59,12 +59,6 @@
     padding: 10px 10px 10px 5px;
     border: none;
     border-bottom: 1px solid var(--gris);
-  }
-  
-  .formulario p textarea {
-    resize: none;
-    outline: none;
-    border: 1px solid var(--gris);
   }
   
   .formulario p input:focus {
