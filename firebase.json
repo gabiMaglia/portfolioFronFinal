@@ -1,5 +1,6 @@
 {
   "hosting": {
+  "site": "my-app-id",
     "public": "dist/front-end",
     "ignore": [
       "firebase.json",
